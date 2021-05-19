@@ -1,0 +1,82 @@
+import speech_recognition as sr
+import webbrowser
+import pyttsx3
+import os
+import random
+import getpass
+
+
+
+
+engine=pyttsx3.init()
+engine.setProperty('rate',130)
+
+
+
+
+pyttsx3.speak("To use function of this program enter valid ID and  password")
+print("\n\n-----------------------To use function of this program enter  ID password--------------")
+
+
+print("\n\n-------------------------------------------------------------------------------------------")
+r=sr.Recognizer()
+
+with sr.Microphone() as source:
+    
+    pyttsx3.speak("speak your voice ID")
+    print("\nSpeak your voice ID:")
+
+    iD_audio=r.listen(source)
+    pyttsx3.speak("we got your voice ID")
+    print("\nwe got your voice ID")
+
+
+print("\n\n--------------------------------------------------------------------------------------------")
+ID=r.recognize_google(pass_ID)
+pyttsx3.speak("you said {}".format(ID))
+print("\n you said",ID)
+
+
+pyttsx3.speak("Enter valid voice password")
+print("\n\n----------------------- Enter  voice password--------------")
+
+print("\n\n-------------------------------------------------------------------------------------------")
+r=sr.Recognizer()
+
+with sr.Microphone() as source:
+    
+    pyttsx3.speak("speak your voice password")
+    print("\nSpeak your voice password:")
+
+    pass_audio=r.listen(source)
+    pyttsx3.speak("we got your voice password")
+    print("\nwe got your voice password")
+
+
+print("\n\n--------------------------------------------------------------------------------------------")
+q=r.recognize_google(pass_audio)
+pyttsx3.speak("you said {}".format(q))
+print("\n you said",q)
+
+
+
+pass1="Admin"
+if pass1!=q:
+    pyttsx3.speak("Password is invalid you can't use this system")
+    print("Password is invalid you can't use this system")
+    exit()
+
+else:    
+    pyttsx3.speak("Welcome you in  voice email system")
+    print("***********Welcome you in  voice email system **********")
+
+    os.system("chrome  mail.google.com") 
+    
+		
+
+
+
+
+
+
+	
